@@ -42,11 +42,27 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
     public $loginHidden = ['password', 'remember_token', 'birthday', 'created_at', 'updated_at', 'url',
                          'gender', 'language', 'birthday', 'phone', 'address', 'country', 'region', 'city'];
 
+    /**
+     * The attributes appended to the model
+     *
+     * @var array
+     */
+    protected $appends = ['avatar'];
+
     public $incrementing = false;
 
     public function accounts()
     {
         return $this->hasMany('\App\Models\UserAccount');
+    }
+
+    public function getAvatarAttribute($avatar)
+    {
+        if (!$avatar) {
+            $avatar = 'https://www.watch2gether.com/assets/w2guser-default-4cd04e39cfd59017ebad065028b8af9dfca8499a45a7b19ec20b1c478a751a77.png';
+        }
+
+        return $avatar;
     }
 
     private static function getAccount(\Hybrid_Provider_Adapter $provider, Hybrid_User_Profile $profile)

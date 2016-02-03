@@ -85,12 +85,12 @@ class ApiController extends Controller
         } else {
             $user = new User;
             $user->email = $email;
-            $user->pass = \Hash::make($password);
+            $user->password = \Hash::make($password);
             $user->token = md5(sha1(\Config::get('app.key').microtime().rand()));
             $user->save();
-            $userArray['token'] = $session->token;
+            $user->setHidden($user->loginHidden);
 
-            return \Response::json(['user' => $userArray]);
+            return \Response::json(['user' => $user]);
         }
     }
 
