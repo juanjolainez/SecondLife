@@ -11,6 +11,13 @@
 |
 */
 
+Route::controller('/api', 'Api\ApiController');
+
+
+Route::group(['middleware' => 'web'], function() {
+   Route::controller('/social', 'SocialController');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -35,4 +35,16 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'redirect'  => 'http://dev.secondlife.com/social/auth',
+        'client_id' => '439018326294413',
+        'client_secret' => '7dd1c7a69c9489475ed7d5ecf8c30872',
+    ],
+
+    'twitter' => [
+        'redirect'  => 'http://dev.secondlife.com/social/auth',
+        'client_id' => '8k8yPjqau4NuchM117434Iw0v',
+        'client_secret' => '3XE91hEGkBS0fqqBLg8ytJGXkDChPLfgifYTZnazkfTcBo1Kao',
+    ],
+
 ];

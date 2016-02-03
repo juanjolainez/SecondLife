@@ -156,6 +156,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        'Laravel\Socialite\SocialiteServiceProvider'
+
+
+
     ],
 
     /*
@@ -201,6 +206,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+        'Moloquent' => 'Jenssegers\Mongodb\Model',
 
     ],
 
